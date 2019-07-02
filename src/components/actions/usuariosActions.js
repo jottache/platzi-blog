@@ -1,8 +1,11 @@
 import axios from 'axios'
-import {TRAER_TODOS} from '../../types/usuariosTypes'
+import {TRAER_TODOS, CARGANDO,ERROR} from '../../types/usuariosTypes'
 
 
 export const traerTodos = () => async (dispatch) =>{
+    dispatch({
+        type: CARGANDO
+    })
     try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/users')
 
@@ -12,6 +15,10 @@ export const traerTodos = () => async (dispatch) =>{
         })
     } catch (error) {
         console.log('error:', error.message)
+        dispatch({
+            type: ERROR,
+            payload: error.message
+        })
     }
 }
 
@@ -34,3 +41,6 @@ ahora importamos el axios aqui para poder traer los datos de la API, justo antes
 //tambien usamos el archivo types para evitar errores de typo en el nombre de los type del dispatch. debe estar encerrado dentro de llaves en el import
 
 //otro metodo para evitar errores es usar try catch, que no solo nos ayuda a identificar el error sino que nos permite mostrarle al usuario cuando ocurre uno de estos errores y poder notificar acciones recomendadas. el codigo a ejecutar (en este caso la promesa) permanece dentro del try mientras que el catch encierra el error y cuando este suceda, ejecutara lo que este dentro de las instrucciones, podemos utilizar un componente incluso para mostrar un error de una manera mas visual
+
+//hacemos que apenas se llame la funcion traerTodos() se mande el dispatch de cargando
+//en el catch donde manejamos el error, hacemos un dispatch que se dispara cuando entra en la instruccion del catch, es dispatch manda una string como payload al reducer.
