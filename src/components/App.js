@@ -1,20 +1,42 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 class App extends Component{
-    render(){
+    
+    state = {
+        users: []
+    }
 
-        const ponerFIlas = () => [
-            <tr>
-                <td>jose</td>
-                <td>jose@gmail.com</td>
-                <td>joseito.com</td>
-            </tr>,
-            <tr>
-                <td>jose</td>
-                <td>jose@gmail.com</td>
-                <td>joseito.com</td>
-            </tr>
+    async componentDidMount(){
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+        this.setState({
+            users:[{
+                name: 'jose',
+                email: 'jose@gmail.com',
+                link: 'joseito.com'
+            },
+            {
+                name: 'jose',
+                email: 'jose@gmail.com',
+                link: 'joseito.com'
+            }
         ]
+        })
+    }
+
+    ponerFIlas = () => (
+        this.state.users.map((user)=>(
+            
+                <tr>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.link}</td>
+                </tr>
+            
+        ))
+    )
+
+    render(){
         return(
             <div className="table-container">
                 <table className="table">
@@ -27,7 +49,7 @@ class App extends Component{
                     </thead>
                     <tbody>
                             {
-                                ponerFIlas()
+                               this.ponerFIlas()
                             }
                     </tbody>
                 </table>
