@@ -8,3 +8,5 @@ const Menu = (props) =>(
     </nav>
 )
 export default Menu
+
+//aqui usamos "Link" y "to" para que no se recargue la pagina cada vez que usamos el router

@@ -17,3 +17,5 @@ const App = () =>(
 )
 
 export default App
+
+//importamos "BrowserRouter" que es en donde debemos encerrar la app para navegar sin recargar el navegador. "Route" para las distintas rutas a las que navegaremos, en esta van los componentes y debemos agregarle la ruta con exact path. "Switch" el switch nos ayudara a navegar entre las diferentes rutas
