@@ -1,10 +1,12 @@
 import axios from 'axios'
+import TRAER_TODOS from '../../types/usuariosTypes'
+
 
 export const traerTodos = () => async (dispatch) =>{
     const response = await axios.get('https://jsonplaceholder.typicode.com/users')
 
     dispatch({
-        type: 'get_users',
+        type: TRAER_TODOS,
         payload: response.data
     })
 }
@@ -24,3 +26,5 @@ esta funcion dispatch recibe un objeto con el type (el cual es el case del reduc
 
 ahora importamos el axios aqui para poder traer los datos de la API, justo antes del dispatch usamos el axios y al dispatch le damos los datos de la respuesta segun los datos del API como esta funcion la llamamos en el componentDidMounth() mostrara los datos. es importante hacer que la arrow function del dispatch sea asincrona ya que estamos usando una promesa
 */
+
+//tambien usamos el archivo types para evitar errores de typo en el nombre de los type del dispatch
