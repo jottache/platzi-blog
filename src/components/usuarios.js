@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import * as usuariosActions from '../components/actions/usuariosActions'
 import Spinner from './Spinner'
+import Fatal from './Fatal'
 
 class Usuarios extends Component{
     
@@ -14,7 +15,11 @@ class Usuarios extends Component{
     ponerContenido = () =>{
         if(this.props.cargando){
             return <Spinner />
-        }else{
+        }
+        if(this.props.error){
+            return <Fatal mensaje={this.props.error}/> //se envia el estado de error por propiedades al componente
+        }
+        else{
             return(
                 <table className="table">
                 <thead>
@@ -73,3 +78,5 @@ export default connect(mapStateToProps,usuariosActions) (Usuarios)
 //notamos tenemos 2 hystories en la consola, ya que estamos haciendo un console.log de las propiedades en el render y luego en el componentDidMount() estamos llamando a la funcion traerTodos(), una de estas hystoris sera el estado inicial y el otro tendra el estado nuevo con lo que le mandamos en el payload de la accion al reducer.
 
 //ahora creamos una funcion llamada "ponerContenido()" que nos coloca el contenido de las tablas, esa funcion la llamamos en el render, y la funcion contiene un if con la condicion de que si llega es estado cargando en true mostrara un componente de spinner, y el else retorna la tabla, cuando cambia el estado de cargando a false, ejecuta el else.
+
+//creamos un componente llamado "fatal" para cuando haya problemas del servidor en la promesa, este componente se mostrara cuando las propiedades del error lleguen "true", de esta manera manejaremos el error de una manera mas visual para el usuario

@@ -28,7 +28,9 @@
     color: white;
     padding-right: 50px;
 }
-
+.fatal{
+    text-align: center;
+}
                                                                 /* spinner */
 .center{
     text-align: center;
