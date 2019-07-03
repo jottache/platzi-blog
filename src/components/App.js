@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Menu from './menu'
 import Usuarios from './usuarios'
 import Tareas from './tareas'
+import Publicaciones from '../components/Publicaciones/publicaciones'
 
 const App = () =>(
     
@@ -11,6 +12,7 @@ const App = () =>(
             <Switch>
                 <Route exact path='/' component={Usuarios} />
                 <Route exact path='/tareas' component={Tareas} />
+                <Route exact path='/publicaciones/:key' component={Publicaciones} />
             </Switch>
         </BrowserRouter>
     

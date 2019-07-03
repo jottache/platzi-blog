@@ -38,7 +38,7 @@ class Usuarios extends Component{
     }
 }
 
-const mapStateToProps = (reducers) =>{
+const mapStateToProps = (reducers) =>{  
     return reducers.usuariosReducer
 }
 
@@ -54,7 +54,7 @@ export default connect(mapStateToProps,usuariosActions) (Usuarios)
 
 //luego en el connect agregamos el action que vamos a utilizar en el componente, ya tendriamos disponible las funciones que creemos en usuariosActions (como por ejemplo traetTodos() )y la llamamos en el componentDidMount con this.props.traerTodos() ya que viene por propiedades del connect. si hacemos un console.log notaremos que obtenemos un objeto que dentro de ella tiene la funcion traerTodos() 
 
-//notamos tenemos 2 hystories en la consola, ya que estamos haciendo un console.log de las propiedades en el render y luego en el componentDidMount() estamos llamando a la funcion traerTodos(), una de estas hystoris sera el estado inicial y el otro tendra el estado nuevo con lo que le mandamos en el payload de la accion al reducer.
+//notamos que tenemos 2 hystories en la consola, ya que estamos haciendo un console.log de las propiedades en el render y luego en el componentDidMount() estamos llamando a la funcion traerTodos(), una de estas hystoris sera el estado inicial y el otro tendra el estado nuevo con lo que le mandamos en el payload de la accion al reducer.
 
 //ahora creamos una funcion llamada "ponerContenido()" que nos coloca el contenido de las tablas, esa funcion la llamamos en el render, y la funcion contiene un if con la condicion de que si llega es estado cargando en true mostrara un componente de spinner, y el else retorna la tabla, cuando cambia el estado de cargando a false, ejecuta el else.
 

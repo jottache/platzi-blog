@@ -1,13 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import '../css/eye.css'
+
 
 const Tabla = (props)=>{
     const ponerFIlas = () => (
-        props.users.map((user)=>(
+        props.users.map((user,key)=>(
                 <tr key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.website}</td>
+                    <td>
+                        <Link to={`/publicaciones/${key}`}>             
+                            <div class="eye-solid2 icon"></div> 
+                        </Link>
+                    </td>
                 </tr>
         ))
     )
