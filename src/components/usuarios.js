@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import * as usuariosActions from '../components/actions/usuariosActions'
 import Spinner from './Spinner'
 import Fatal from './Fatal'
+import Tabla from './tabla'
 
 class Usuarios extends Component{
     
@@ -21,33 +22,11 @@ class Usuarios extends Component{
         }
         else{
             return(
-                <table className="table">
-                <thead>
-                    <tr>
-                        <th>nombre</th>
-                        <th>email</th>
-                        <th>link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        {
-                           this.ponerFIlas()
-                        }
-                </tbody>
-            </table>
+                <Tabla/> //importamos y usamos el componente de tablas que es en donde se renderiza toda la tabla y sus datos
             )
         }
     }
 
-    ponerFIlas = () => (
-        this.props.users.map((user)=>(
-                <tr key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.website}</td>
-                </tr>
-        ))
-    )
 
     render(){
         console.log(this.props)
