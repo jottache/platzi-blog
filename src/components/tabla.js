@@ -6,19 +6,20 @@ import '../css/eye.css'
 
 const Tabla = (props)=>{
     const ponerFIlas = () => (
-        props.users.map((user,key)=>(
+        props.users.map((user,key)=>(   //le pasamos key como parametros, nos permitira tener un una numeracion desde el 0 
                 <tr key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.website}</td>
                     <td>
-                        <Link to={`/publicaciones/${key}`}>             
-                            <div class="eye-solid2 icon"></div> 
+                        <Link to={`/publicaciones/${key}`}>      {/* este link se conecta con react router y nos recibe el key para agregarlo a la ruta*/}   
+                            <div className="eye-solid2 icon"></div>  {/* este es un icono creado con vanilla css, tiene forma de un ojo */}
                         </Link>
                     </td>
                 </tr>
         ))
     )
+
     return(
         <div>
         <table className="table">

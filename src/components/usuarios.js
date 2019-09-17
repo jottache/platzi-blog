@@ -10,7 +10,8 @@ class Usuarios extends Component{
    
 
     componentDidMount(){
-        this.props.traerTodos()
+        if(!this.props.users.length) //con este if evitamos segundas cargas al volver al link de usuarios. le decimos que si llega vacio, haga la funcion
+        this.props.usuariosTraerTodos()
     }
 
     ponerContenido = () =>{

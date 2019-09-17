@@ -2,7 +2,7 @@ import axios from 'axios'
 import {TRAER_TODOS, CARGANDO,ERROR} from '../../types/usuariosTypes'
 
 
-export const traerTodos = () => async (dispatch) =>{
+export const usuariosTraerTodos = () => async (dispatch) =>{
     dispatch({
         type: CARGANDO
     })
@@ -17,7 +17,7 @@ export const traerTodos = () => async (dispatch) =>{
         console.log('error:', error.message)
         dispatch({
             type: ERROR,
-            payload: 'algo salio mal, intente mas tarde!'
+            payload: 'informacion de usuario no disponible!'
         })
     }
 }
