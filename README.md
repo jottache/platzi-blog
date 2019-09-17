@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -71,3 +72,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 # platzi-blog
 un blog creado para el curso de git de platzi
 >>>>>>> b805f4dff0c5c9b15328128648a2a2979b4915c3
+=======
+# platzi-blog
+blog realizado como proyecto del curso de redux de platzi
+>>>>>>> 7132c58cf04ed8bd9d3a0c3985ab3982041be131
